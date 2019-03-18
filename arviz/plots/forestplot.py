@@ -246,9 +246,13 @@ class PlotHandler:
 
         if var_names is None:
             if len(self.data) > 1:
-                self.var_names = list(set().union(*[OrderedDict(datum.data_vars) for datum in self.data]))
+                self.var_names = list(
+                    set().union(*[OrderedDict(datum.data_vars) for datum in self.data])
+                )
             else:
-                self.var_names = list(reversed(*[OrderedDict(datum.data_vars) for datum in self.data]))
+                self.var_names = list(
+                    reversed(*[OrderedDict(datum.data_vars) for datum in self.data])
+                )
         else:
             self.var_names = list(reversed(var_names))  # y-values are upside down
 
